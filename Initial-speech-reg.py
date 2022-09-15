@@ -1,26 +1,25 @@
-import sounddevice as sd
-import wavio
 import speech_recognition as sr
-
-# output file name
-filename = 'output.wav'
-
-fs = 44100  # Sample rate
-seconds = 3  # Duration of recording
-
-# Record for 3 seconds
-print("Start speaking!")
-myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
-sd.wait()  # Wait until recording is finished
-
-# Saving the output file produced during the run time
-wavio.write(filename, myrecording, fs ,sampwidth=2)
+from playsound import playsound
 
 # Building the recognizer model
 r = sr.Recognizer()
 
+# Check if command was given
+is_command_given = False
+
 # Using Google API to identify the text
-with sr.AudioFile(filename) as source:
-    data = r.record(source)
-    text = r.recognize_google(data)
-print(text)
+with sr.Microphone() as source:
+    # read the audio data from the default microphone
+    while is_command_given == False:
+        audio_data = r.listen(source)
+        print("Recognizing...")
+    # convert speech to text
+        try:
+            text = r.recognize_google(audio_data)
+            print(text)
+            is_command_given == True
+            break
+    # If user taking too long then stand-by for a response
+        except:
+            print("Failed!")
+            is_command_given = False
