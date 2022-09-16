@@ -8,7 +8,8 @@ To further imporove our performance and better the results, **Threading** is use
 
 ### Configuration/Module installation
 Speech Recognition: [pip install SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
+
 Play Sound: [pip install playsound](https://pypi.org/project/playsound/)
 
 ### Expectation
-The expectation from this test is to get a satisfactory performance while keeping in mind all the features are not affected. Furthermore, have a decent understanding on how different **Virtual Assistants*, like Goolge Assistant, Alexa etc., are able to achieve better results and use that as a comparision to improve on.
+The expectation from this test is to get a satisfactory performance while keeping in mind all the features are not affected. Furthermore, have a decent understanding on how different **Virtual Assistants**, like Goolge Assistant, Alexa etc., are able to achieve better results and use that as a comparision to improve on.
