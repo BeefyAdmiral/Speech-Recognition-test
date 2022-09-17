@@ -1,8 +1,11 @@
+import logging
 import threading
+import time
+import concurrent.futures
 import speech_recognition as sr
 from playsound import playsound
 
-# Runs the microphone
+
 def thread_function(name):
     # Using Google API to identify the text
     with sr.Microphone() as source:
@@ -19,7 +22,6 @@ def thread_function(name):
                 audio_data.append(r.listen(source))
                 print("test")
 
-# Checks for activation response from user
 def thread_function2(name):
     while True:
         if len(audio_data) != 0:
